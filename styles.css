@@ -1,0 +1,123 @@
+body {
+  margin: auto;
+  overflow: hidden !important;
+}
+#heroes {
+  background-color: #fefae0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+  flex-direction: column;
+}
+
+#circles{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.circle {
+  cursor:grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccd5ae;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 32px;
+  color: #fefae0;
+}
+#locked {
+  display: none;
+  height: 100vh;
+  width: 100%;
+}
+#door{
+  cursor: pointer;
+  position: absolute;
+    height: 100px;
+    width: 75px;
+    background-color: #ccd5ae;
+    border: 6px solid #ccd5ae;
+    border-bottom: 0px;
+    border-radius: 25% 25% 0% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.changing_door{
+  animation: shakeDoor 0.5s ease-in-out infinite, openDoor 0.25s ease 2s;
+  animation-fill-mode:forwards;
+}
+
+@keyframes shakeDoor {
+  0%{transform: translate(0px,0px);}
+  20%{transform: translate(-1px,0px);}
+  40%{transform: translate(1px,0px);}
+  60%{transform: translate(-1px,0px);}
+  80%{transform: translate(1px,0px);}
+  100%{transform: translate(-1px,0px);}
+}
+@keyframes openDoor {
+  0%{transform: translate(0,0px);}
+  50%{transform: translate(0,-5px);}
+  100%{transform: translate(0,-0px);}
+}
+#paddle_lock{
+    height: 30px;
+    width: 30px;
+    background-color: #ccd5ae;
+    border-radius: 50%;
+    border: 6px solid #fefae0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.changing_lock{
+  animation: rotatelock 2s ease-in,hidelock 0.25s ease-in 2s;
+  animation-fill-mode:forwards;
+}
+
+@keyframes rotatelock {
+  from{transform: rotate(0deg);}
+  to{transform: rotate(90deg);}
+}
+@keyframes hidelock {
+  from{opacity: 1;}
+  to{opacity: 0;}
+}
+#bolt{
+    height: 20px;
+    width: 6px;
+    background-color: #fefae0;
+}
+
+#door:hover #doorSpace{
+  width: 50px;
+  left: 50px;
+}
+
+#doorSpace{
+  opacity: 0;
+  position: absolute;
+  left: 65px;
+  height: 100%;
+  width: 10px;
+  background-color: #fefae0;
+}
+
+.changing_space{
+  animation: showSpace 0.1s ease-in 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes showSpace {
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
