@@ -13,6 +13,9 @@ function checkOrder() {
     paddleLock.classList.toggle("changing_lock");
     door.classList.toggle("changing_door");
     doorSpace.classList.toggle("changing_space");
+    document.getElementById('door').addEventListener('click', function(e) {
+      window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=sOu7HeMbaOLTK5DM';
+  }, false);
   }
   console.log(order);
 }
